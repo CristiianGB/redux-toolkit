@@ -64,3 +64,14 @@ button{
     color: green;
     background-color: white;
 }
+.workers{
+    display: grid; /*utilizo grid por variar y tambien porque con flex si no encajan los elementos deja uno perdido y pierdo control*/
+    gap: 8px; /* dejo un espacio de 8px por todos los lados*/
+    grid-template-columns: repeat(5, 1fr); /*defino 5 columnas por fila y que ocupe el 100% del espacio que tenga*/
+    text-align: center; /*que todos los hijos esten centrados a nivel horizontal*/
+    margin-top: 12px; /* margen para que no se pegue al boton*/ 
+}
+.nameWorkers{
+    font-size: 1.04em; /*un poco mas grande para que resalte el nombre*/
+    margin-top: 8px; /* un poco de espacio*/
+}

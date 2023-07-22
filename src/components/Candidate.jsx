@@ -16,7 +16,7 @@ const Candidate = ({candidate, onFetchOne, index, onSaveOne}) => {
             </div>
             <div className="buttons">
                 <button className="hide" onClick={()=>onFetchOne(index)}>Ocultar</button>
-                <button className="save" onClick={()=>onSaveOne(candidate)}>Guardar</button>
+                <button className="save" onClick={()=>onSaveOne(candidate, index)}>Guardar</button>
             </div>
             </div>
            

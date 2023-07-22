@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Candidate from "./Candidate";
 import { useDispatch, useSelector } from "react-redux";
-import { addCandidate } from "../store/candidatesSlice";
+import { addCandidate } from "../store/Slices";
 import { Link } from "react-router-dom";
 
 const List = () => {
@@ -25,12 +25,16 @@ const List = () => {
         })
     }
 
-    const saveOne = (candidate) => {
-        dispatch(addCandidate(candidate))
+    const saveOne = (candidate, index) => {
+        const newCandidate = {...candidate, role:""}
+        dispatch(addCandidate(newCandidate))
+        fetchOne(index)
     }
 
     return(
         <>
+        <h1>Candidatos:</h1>
+        <Link to="/contracted"><button>Trabajadores</button></Link>
         <main className="main">
             {candidates.map((candidate, index)=>
             <Candidate candidate={candidate} index={index} onSaveOne={saveOne} onFetchOne={fetchOne}/>

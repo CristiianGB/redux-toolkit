@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { candidatesSlice, rolesSlice } from "./candidatesSlice";
+import { candidatesSlice, rolesSlice } from "./Slices";
 
 export default configureStore({
     reducer: {
