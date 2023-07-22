@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MiRouter from "./MiRouter"
-import store from './store/store';
+import "./index.css"
+import MiRouter from './router/MiRouter';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import store from './store/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* al provider le doy el valor del store para relacionarlo y que toda la aplicaciona acceda a sus valores */}
-    <Provider store={store}> 
-    {/* almaceno todo el proyecto en miRouter */}
-      <MiRouter /> 
+    <Provider store={store}>
+      <BrowserRouter>
+        <MiRouter />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
