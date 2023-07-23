@@ -5,5 +5,6 @@ export default configureStore({
     reducer: {
         candidates: candidatesSlice.reducer,
         roles: rolesSlice.reducer
-    }
+    }, 
+    
 })

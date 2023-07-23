@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import List from "../components/List";
-import Contracted from "../components/Contracted";
+import List from "../views/List";
+import Contracted from "../views/Contracted";
 
 const MiRouter = () => {
     return ( 

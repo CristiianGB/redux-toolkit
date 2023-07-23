@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Worker from "./Worker";
+import Worker from "../components/Worker";
 import { Link } from "react-router-dom";
 import { deleteCandidate, updateCandidate } from "../store/Slices";
 

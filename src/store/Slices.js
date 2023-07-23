@@ -1,4 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+
+export const getInitialCandidatesThunk = createAsyncThunk("candidates/getInitialCandidatesThunk", async () => {
+const response = await fetch(`https://randomuser.me/api/?results=6`)
+    const data = await response.json()
+    console.log(data.results)
+    return data.results
+})
 
 export const candidatesSlice = createSlice({
     name: "candidates",
@@ -6,6 +14,9 @@ export const candidatesSlice = createSlice({
         candidatesList: [],
     },
     reducers:{
+        initialCandidates: (state, action) => {
+            console.log(action.payload)
+        },
         addCandidate: (state, action) => {
             state.candidatesList = [...state.candidatesList, action.payload]
         },
@@ -21,8 +32,16 @@ export const candidatesSlice = createSlice({
                 candidate.email!==email
                 )
         }
-    
-    }
+    }, 
+    extraReducers: (builder) => {
+        builder.addCase(getInitialCandidatesThunk.fulfilled, (state, action) => {
+            console.log("fullfilled");
+            console.log(state);
+            console.log(action);
+            state.candidatesList = []
+          })
+          
+      },
 })
 
 export const rolesSlice = createSlice({
@@ -36,3 +55,5 @@ export const rolesSlice = createSlice({
 export const { addCandidate } = candidatesSlice.actions;
 export const { updateCandidate } = candidatesSlice.actions;
 export const { deleteCandidate } = candidatesSlice.actions;
+export const { initialCandidates } = candidatesSlice.actions;
+export default candidatesSlice.reducer
